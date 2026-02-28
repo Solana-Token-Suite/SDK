@@ -1,0 +1,47 @@
+{
+  "name": "@solana-token-suite/sdk",
+  "version": "1.0.0",
+  "description": "SDK for Solana Token Suite — create Token-2022 tokens with extensions, manage transfer hooks, launch ICOs, and mint NFTs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "idl"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "solana",
+    "token-2022",
+    "transfer-hook",
+    "ico",
+    "nft",
+    "spl-token",
+    "anchor"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.32.1",
+    "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
+    "@metaplex-foundation/umi": "^1.5.1",
+    "@metaplex-foundation/umi-bundle-defaults": "^1.5.1",
+    "@metaplex-foundation/umi-uploader-irys": "^1.5.0",
+    "@metaplex-foundation/umi-web3js-adapters": "^1.5.1",
+    "@solana/spl-token": "^0.4.14",
+    "@solana/web3.js": "^1.98.4",
+    "bn.js": "^5.2.1",
+    "bs58": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.1.6",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "@metaplex-foundation/umi": "^1.5.1"
+  }
+}

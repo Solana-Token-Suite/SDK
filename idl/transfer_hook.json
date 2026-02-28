@@ -1,0 +1,721 @@
+{
+  "address": "AjNBZRCm6jsPjPRiZ3hbAitg9KEgCYqKmGm675Fpi6XU",
+  "metadata": {
+    "name": "transfer_hook",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "add_to_whitelist",
+      "discriminator": [
+        157,
+        211,
+        52,
+        54,
+        144,
+        81,
+        5,
+        55
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "user_pubkey"
+        },
+        {
+          "name": "whitelist_marker",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  104,
+                  105,
+                  116,
+                  101,
+                  108,
+                  105,
+                  115,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              },
+              {
+                "kind": "account",
+                "path": "user_pubkey"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "edit_config",
+      "discriminator": [
+        244,
+        197,
+        215,
+        48,
+        246,
+        184,
+        210,
+        138
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint"
+        }
+      ],
+      "args": [
+        {
+          "name": "open_minute",
+          "type": {
+            "option": "u16"
+          }
+        },
+        {
+          "name": "close_minute",
+          "type": {
+            "option": "u16"
+          }
+        },
+        {
+          "name": "max_transfer_amount",
+          "type": {
+            "option": "u64"
+          }
+        },
+        {
+          "name": "min_transfer_amount",
+          "type": {
+            "option": "u64"
+          }
+        },
+        {
+          "name": "nft_mint_address",
+          "type": {
+            "option": "pubkey"
+          }
+        }
+      ]
+    },
+    {
+      "name": "execute",
+      "discriminator": [
+        105,
+        37,
+        101,
+        197,
+        75,
+        251,
+        102,
+        26
+      ],
+      "accounts": [
+        {
+          "name": "source_token"
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "destination_token"
+        },
+        {
+          "name": "owner"
+        },
+        {
+          "name": "extra_account_meta_list",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  120,
+                  116,
+                  114,
+                  97,
+                  45,
+                  97,
+                  99,
+                  99,
+                  111,
+                  117,
+                  110,
+                  116,
+                  45,
+                  109,
+                  101,
+                  116,
+                  97,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "whitelist_marker",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  104,
+                  105,
+                  116,
+                  101,
+                  108,
+                  105,
+                  115,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "nft_mint"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program"
+        },
+        {
+          "name": "nft_token_account"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_registry",
+      "discriminator": [
+        189,
+        181,
+        20,
+        17,
+        174,
+        57,
+        249,
+        59
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "treasury",
+          "writable": true,
+          "address": "HtGXcunbPUU54wMa9ZiXdMXvv1b5ppT7DeFLJWdtH7Lr"
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "extra_account_meta_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  120,
+                  116,
+                  114,
+                  97,
+                  45,
+                  97,
+                  99,
+                  99,
+                  111,
+                  117,
+                  110,
+                  116,
+                  45,
+                  109,
+                  101,
+                  116,
+                  97,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "open_minute",
+          "type": {
+            "option": "u16"
+          }
+        },
+        {
+          "name": "close_minute",
+          "type": {
+            "option": "u16"
+          }
+        },
+        {
+          "name": "max_transfer_amount",
+          "type": "u64"
+        },
+        {
+          "name": "min_transfer_amount",
+          "type": "u64"
+        },
+        {
+          "name": "nft_mint_address",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "remove_from_whitelist",
+      "discriminator": [
+        7,
+        144,
+        216,
+        239,
+        243,
+        236,
+        193,
+        235
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "user_pubkey"
+        },
+        {
+          "name": "whitelist_marker",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  104,
+                  105,
+                  116,
+                  101,
+                  108,
+                  105,
+                  115,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              },
+              {
+                "kind": "account",
+                "path": "user_pubkey"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "update_flags",
+      "discriminator": [
+        243,
+        82,
+        231,
+        219,
+        208,
+        236,
+        221,
+        172
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint"
+        }
+      ],
+      "args": [
+        {
+          "name": "whitelist_enabled",
+          "type": "bool"
+        },
+        {
+          "name": "trading_time_enabled",
+          "type": "bool"
+        },
+        {
+          "name": "max_transfer_enabled",
+          "type": "bool"
+        },
+        {
+          "name": "nft_gated",
+          "type": "bool"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "ConfigAccount",
+      "discriminator": [
+        189,
+        255,
+        97,
+        70,
+        186,
+        189,
+        24,
+        102
+      ]
+    },
+    {
+      "name": "WhitelistMarker",
+      "discriminator": [
+        193,
+        20,
+        1,
+        130,
+        247,
+        191,
+        244,
+        251
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "TradingIsClosed",
+      "msg": "Trading is currently closed for this token"
+    },
+    {
+      "code": 6001,
+      "name": "ExceedsMaxTransfer",
+      "msg": "Transfer amount exceeds maximum limit"
+    },
+    {
+      "code": 6002,
+      "name": "BelowMinTransfer",
+      "msg": "Transfer amount is below minimum limit"
+    },
+    {
+      "code": 6003,
+      "name": "NotWhitelisted",
+      "msg": "Sender is not whitelisted"
+    },
+    {
+      "code": 6004,
+      "name": "MissingNftAccount",
+      "msg": "Sender does not hold the required NFT"
+    },
+    {
+      "code": 6005,
+      "name": "Unauthorized",
+      "msg": "Unauthorized action"
+    },
+    {
+      "code": 6006,
+      "name": "MetaListError",
+      "msg": "Failed to initialize extra account meta list"
+    },
+    {
+      "code": 6007,
+      "name": "InvalidPubkey",
+      "msg": "Invalide pub key"
+    },
+    {
+      "code": 6008,
+      "name": "InvalidTransferAmount",
+      "msg": "Invalid transfer amount"
+    }
+  ],
+  "types": [
+    {
+      "name": "ConfigAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "nft_mint_address",
+            "type": "pubkey"
+          },
+          {
+            "name": "whitelist_enabled",
+            "type": "bool"
+          },
+          {
+            "name": "trading_time_enabled",
+            "type": "bool"
+          },
+          {
+            "name": "max_transfer_enabled",
+            "type": "bool"
+          },
+          {
+            "name": "nft_gated",
+            "type": "bool"
+          },
+          {
+            "name": "open_minute",
+            "type": {
+              "option": "u16"
+            }
+          },
+          {
+            "name": "close_minute",
+            "type": {
+              "option": "u16"
+            }
+          },
+          {
+            "name": "max_transfer_amount",
+            "type": "u64"
+          },
+          {
+            "name": "min_transfer_amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "WhitelistMarker",
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    }
+  ]
+}
